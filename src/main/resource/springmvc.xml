@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    		">
+
+    <!-- 扫描controller -->
+    <context:component-scan base-package="cn.niudehua.pet.controller"/>
+
+    <mvc:annotation-driven conversion-service="conversionService"/>
+
+    <!-- 转换器的配置 -->
+    <bean id="conversionService"
+          class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="cn.niudehua.pet.converter.DateConverter"/>
+            </set>
+        </property>
+    </bean>
+
+    <!-- 视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:order="3">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 图片最大不能超过5兆 -->
+        <property name="maxUploadSize" value="5242880"/>
+    </bean>
+
+    <!-- 静态资源访问 -->
+    <mvc:resources location="/static/js/" mapping="/js/**"/>
+    <mvc:resources location="/upload/" mapping="/upload/**"/>
+
+    <!-- 针对所有mapping配置全局拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- /**表示拦截所有的资源,包括多级目录 -->
+            <mvc:mapping path="/**"/>
+            <bean class="cn.niudehua.pet.interceptor.LoginInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+</beans>
