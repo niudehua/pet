@@ -72,8 +72,8 @@ public class DogCriteria {
     }
 
     public void setPageNo(Integer pageNo) {
-        this.pageNo=pageNo;
-        this.startRow = (pageNo-1)*this.pageSize;
+        this.pageNo = pageNo;
+        this.startRow = (pageNo - 1) * this.pageSize;
     }
 
     public Integer getPageNo() {
@@ -81,7 +81,7 @@ public class DogCriteria {
     }
 
     public void setStartRow(Integer startRow) {
-        this.startRow=startRow;
+        this.startRow = startRow;
     }
 
     public Integer getStartRow() {
@@ -89,8 +89,8 @@ public class DogCriteria {
     }
 
     public void setPageSize(Integer pageSize) {
-        this.pageSize=pageSize;
-        this.startRow = (pageNo-1)*this.pageSize;
+        this.pageSize = pageSize;
+        this.startRow = (pageNo - 1) * this.pageSize;
     }
 
     public Integer getPageSize() {
@@ -98,7 +98,7 @@ public class DogCriteria {
     }
 
     public void setFields(String fields) {
-        this.fields=fields;
+        this.fields = fields;
     }
 
     public String getFields() {

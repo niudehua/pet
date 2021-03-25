@@ -1,14 +1,16 @@
-### Maven
-target/
-logs/
-!.mvn/wrapper/maven-wrapper.jar
+######################################################################
+# Build Tools
 
-### Gradle
 .gradle
 /build/
-/out/
 !gradle/wrapper/gradle-wrapper.jar
-bin/
+
+classes/
+target/
+!.mvn/wrapper/maven-wrapper.jar
+*.class
+######################################################################
+# IDE
 
 ### STS ###
 .apt_generated
@@ -17,53 +19,27 @@ bin/
 .project
 .settings
 .springBeans
-.sts4-cache
 
 ### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
-log/
 
 ### NetBeans ###
 nbproject/private/
-build/
+build/*
 nbbuild/
 dist/
 nbdist/
 .nb-gradle/
 
-### Mac
-.DS_Store
-*/.DS_Store
-
-### VS Code ###
-*.project
-*.factorypath
-
-# Compiled class file
-*.class
-
-# Log file
+######################################################################
+# Others
 *.log
+*.xml.versionsBackup
+*.swp
 
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# VSCode
-.vscode
-
-# classes
-classes/*
+!*/build/*.java
+!*/build/*.html
+!*/build/*.xml

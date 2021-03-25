@@ -98,15 +98,15 @@
         </if>
     </select>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-    select 
-    cid,name,color,type,user_id
-    from dog
-    where cid = #{cid,jdbcType=INTEGER}
-  </select>
+        select
+        cid,name,color,type,user_id
+        from dog
+        where cid = #{cid,jdbcType=INTEGER}
+    </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from dog
-    where cid = #{cid,jdbcType=INTEGER}
-  </delete>
+        delete from dog
+        where cid = #{cid,jdbcType=INTEGER}
+    </delete>
     <delete id="deleteByExample" parameterType="cn.niudehua.pet.pojo.DogCriteria">
         delete from dog
         <if test="_parameter != null">
@@ -114,11 +114,11 @@
         </if>
     </delete>
     <insert id="insert" parameterType="cn.niudehua.pet.pojo.Dog">
-    insert into dog (cid, name, color, 
-      type, user_id)
-    values (#{cid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{color,jdbcType=VARCHAR}, 
-      #{type,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER})
-  </insert>
+        insert into dog (cid, name, color,
+        type, user_id)
+        values (#{cid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{color,jdbcType=VARCHAR},
+        #{type,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER})
+    </insert>
     <insert id="insertSelective" parameterType="cn.niudehua.pet.pojo.Dog">
         insert into dog
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -216,17 +216,17 @@
         where cid = #{cid,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="cn.niudehua.pet.pojo.Dog">
-    update dog
-    set name = #{name,jdbcType=VARCHAR},
-      color = #{color,jdbcType=VARCHAR},
-      type = #{type,jdbcType=VARCHAR},
-      user_id = #{userId,jdbcType=INTEGER}
-    where cid = #{cid,jdbcType=INTEGER}
-  </update>
+        update dog
+        set name = #{name,jdbcType=VARCHAR},
+        color = #{color,jdbcType=VARCHAR},
+        type = #{type,jdbcType=VARCHAR},
+        user_id = #{userId,jdbcType=INTEGER}
+        where cid = #{cid,jdbcType=INTEGER}
+    </update>
 
     <!--根据用户id查询dog-->
     <select id="selectByUserId" parameterType="int"
             resultType="cn.niudehua.pet.pojo.Dog">
-    select * from dog where user_id=#{id};
-  </select>
+        select * from dog where user_id=#{id};
+    </select>
 </mapper>

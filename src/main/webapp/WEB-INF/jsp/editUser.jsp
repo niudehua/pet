@@ -39,7 +39,8 @@
         </caption>
         <tr>
             <td>头像</td>
-            <td><img width="100" height="100" id="allimg" src="${pageContext.request.contextPath}/${user.photo}"/>
+            <td><img width="100" height="100" id="allimg"
+                     src="${pageContext.request.contextPath}/${user.photo}"/>
                 <input type="file" name="picfile" onchange="uploadImg();"/>
                 <input type="hidden" name="photo" id="himg"/> <!-- 回显图片的路径 --></td>
         </tr>

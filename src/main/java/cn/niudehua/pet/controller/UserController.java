@@ -90,7 +90,7 @@ public class UserController {
      */
     @RequestMapping("/uploadImg")
     public void uploadImg(MultipartFile picfile, HttpServletRequest request, HttpServletResponse response)
-            throws IllegalStateException, IOException {
+        throws IllegalStateException, IOException {
         response.setCharacterEncoding("utf-8");
         // 1. 获得图片的名称
         String filename = picfile.getOriginalFilename();
@@ -98,7 +98,7 @@ public class UserController {
         String ext = filename.substring(filename.lastIndexOf("."));
         String newName = UUID.randomUUID().toString().replace("-", "") + ext;
         // 2. 把图片上传到服务器F:\IdeaProject\exam\web\WEB-INF\imgs
-        String url = request.getSession().getServletContext().getContextPath()+("/upload/");
+        String url = request.getSession().getServletContext().getContextPath() + ("/upload/");
         picfile.transferTo(new File(url + newName));
         // 3.把图片的路径使用json的格式进行返回
         JSONObject jo = new JSONObject();
